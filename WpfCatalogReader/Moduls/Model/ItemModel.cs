@@ -6,6 +6,5 @@ namespace WpfCatalogReader.Moduls.Model
     {
         public List<string> ItemContext { get; set; }
         public string ItemId { get; set; }
-        public string ItemValue { get; set; }
     }
 }

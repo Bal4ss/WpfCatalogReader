@@ -19,7 +19,7 @@
                     Grid.Row="0"
                     Orientation="Horizontal">
             <Button Content="Select file"
-                    Click="{Binding }"/>
+                    Command="{Binding OpenFileCommand}"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -35,6 +35,14 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="Hime.Redist, Version=3.5.0.0, Culture=neutral, PublicKeyToken=984dd3a5d55ca89c">
+          <HintPath>..\packages\Hime.Redist.3.5.0\lib\net20\Hime.Redist.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Karambolo.PO, Version=1.7.0.0, Culture=neutral, PublicKeyToken=496b38436bb9edeb">
+          <HintPath>..\packages\Karambolo.PO.Compact.1.7.0\lib\net45\Karambolo.PO.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Configuration" />
         <Reference Include="System.Core" />
@@ -54,7 +62,6 @@
         </ApplicationDefinition>
         <Compile Include="Moduls\Config\AppSettings.cs" />
         <Compile Include="Moduls\Convertor\CustConvertor.cs" />
-        <Compile Include="Moduls\Data Provider\FileDataProvider.cs" />
         <Compile Include="Moduls\Model\ItemModel.cs" />
         <Compile Include="Settings.cs" />
         <Page Include="MainWindow.xaml">
@@ -90,6 +97,10 @@
     </ItemGroup>
     <ItemGroup>
         <None Include="App.config" />
+        <None Include="packages.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="UI\Controls" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
