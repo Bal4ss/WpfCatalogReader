@@ -7,7 +7,7 @@
              DataContext="{Binding RelativeSource={RelativeSource Self}}"
              mc:Ignorable="d">
     <UserControl.Resources>
-        <DrawingImage x:Key="doc_16">
+        <DrawingImage x:Key="Doc16">
             <DrawingImage.Drawing>
                 <DrawingGroup>
                     <DrawingGroup.Children>
@@ -107,25 +107,13 @@
                 Template="{StaticResource BtSelectTemplate}"
                 Command="{Binding SelectCommand}">
             <StackPanel Orientation="Horizontal">
-                <Image Source="{StaticResource doc_16}"
+                <Image Source="{StaticResource Doc16}"
                        Margin="2.5 0"
                        VerticalAlignment="Center"/>
                 <TextBlock Name="DirectoryName"
                            VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <!--<StackPanel Grid.Column="2"
-                    Grid.Row="0"
-                    Orientation="Horizontal"
-                    VerticalAlignment="Center"
-                    Background="White"
-                    MouseLeftButtonDown="Select">
-            <Image Source="{StaticResource doc_16}"
-                   Margin="2.5 0"
-                   VerticalAlignment="Center"/>
-            <TextBlock Name="DirectoryName"
-                       VerticalAlignment="Center"/>
-        </StackPanel>-->
         <StackPanel Grid.Column="2"
                     Grid.Row="1"
                     Background="White"

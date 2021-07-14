@@ -11,7 +11,6 @@ namespace WpfCatalogReader
     public class Settings
     {
         private readonly AppSettings _appSettings;
-
         private List<ItemModel> _items = new List<ItemModel>();
         private List<ItemModel> _selectedItems;
         private event EventHandler _select;
@@ -25,7 +24,7 @@ namespace WpfCatalogReader
 
         public bool IsEnglish => _appSettings.IsEnglish;
 
-        public List<ItemModel> Items => _items;
+        public IEnumerable<ItemModel> Items => _items;
 
         public EventHandler Select
         {
@@ -33,7 +32,7 @@ namespace WpfCatalogReader
             set => _select = value;
         }
 
-        public List<ItemModel> SelectedItems
+        public IEnumerable<ItemModel> SelectedItems
             => _selectedItems ??= new List<ItemModel>();
 
         public void SelectItem(List<ItemModel> models)

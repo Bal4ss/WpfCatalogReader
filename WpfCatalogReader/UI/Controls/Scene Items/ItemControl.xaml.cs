@@ -117,11 +117,6 @@ namespace WpfCatalogReader.UI.Controls.Scene_Items
         {
             Settings.Default.SelectItem(_items);
         }
-        
-        /*private void Select(object sender, MouseButtonEventArgs e)
-        {
-            Settings.Default.SelectItem(_items);
-        }*/
 
         public event PropertyChangedEventHandler PropertyChanged;
 
