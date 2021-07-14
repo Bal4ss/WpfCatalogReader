@@ -6,7 +6,11 @@
         {
             InitializeComponent();
 
-            ViewModel = new MainWindowViewModel();
+            ViewModel = new MainWindowViewModel
+            {
+                UiItems = ItemsWrapperPanel.Children,
+                UiIds = ItemsIdsPanel.Children
+            };
         }
 
         public MainWindowViewModel ViewModel

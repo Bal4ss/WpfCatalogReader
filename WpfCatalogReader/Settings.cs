@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using Karambolo.PO;
 using WpfCatalogReader.Moduls.Config;
@@ -14,7 +13,8 @@ namespace WpfCatalogReader
         private readonly AppSettings _appSettings;
 
         private List<ItemModel> _items = new List<ItemModel>();
-        private event EventHandler _reload;
+        private List<ItemModel> _selectedItems;
+        private event EventHandler _select;
         
         public static readonly Settings Default = new Settings();
 
@@ -27,10 +27,19 @@ namespace WpfCatalogReader
 
         public List<ItemModel> Items => _items;
 
-        public EventHandler Reload
+        public EventHandler Select
         {
-            get => _reload;
-            set => _reload = value;
+            get => _select;
+            set => _select = value;
+        }
+
+        public List<ItemModel> SelectedItems
+            => _selectedItems ??= new List<ItemModel>();
+
+        public void SelectItem(List<ItemModel> models)
+        {
+            _selectedItems = models;
+            Select?.Invoke(this, EventArgs.Empty);
         }
         
         public void OpenFile(string filename)
@@ -51,12 +60,10 @@ namespace WpfCatalogReader
             {
                 _items.Add(new ItemModel()
                 {
-                    ItemContext = a.ContextId?.Split('.').ToList(),
+                    ItemContext = a.ContextId,
                     ItemId = a.Id
                 });
             }
-
-            Reload?.Invoke(this, EventArgs.Empty);
         }
     }
 }
