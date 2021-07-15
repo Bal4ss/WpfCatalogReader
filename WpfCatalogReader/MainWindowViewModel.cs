@@ -102,19 +102,19 @@ namespace WpfCatalogReader
             
             for (var i = 0; i < itemList.Count(); i++)
             {
-                var tmpCts = itemList[i].ContextGroup;
+                var tmpCts = itemList[i].ViewModel.ContextGroup;
                 for (var j = i + 1; j < itemList.Count(); j++)
                 {
-                    var tmpCtsJ = itemList[j].ContextPath;
+                    var tmpCtsJ = itemList[j].ViewModel.ContextPath;
                     if (tmpCts == tmpCtsJ)
-                        itemList[i].AddItem(itemList[j]);
+                        itemList[i].ViewModel.AddItem(itemList[j]);
                 }
             }
 
-            var result = itemList.FirstOrDefault(c => c.ContextDirectory == "Root");
+            var result = itemList.FirstOrDefault(c => c.ViewModel.ContextDirectory == "Root");
             if (result != null)
             {
-                result.IsRoot = true;
+                result.ViewModel.IsRoot = true;
                 UiItems?.Add(result);
             }
             RaisePropertyChanged(nameof(UiItems));

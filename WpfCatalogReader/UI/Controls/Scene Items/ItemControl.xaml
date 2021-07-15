@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:WpfCatalogReader.UI.Controls.Scene_Items"
-             DataContext="{Binding RelativeSource={RelativeSource Self}}"
              mc:Ignorable="d">
     <UserControl.Resources>
         <DrawingImage x:Key="Doc16">
@@ -46,7 +45,6 @@
         <Border Grid.Row="0"
                 Grid.Column="0"
                 Grid.RowSpan="2"
-                Name="MainBorderBlock"
                 Margin="0 10"
                 Width="1"
                 BorderThickness="0,0,1,0">
@@ -61,11 +59,11 @@
         </Border>
         <Border Grid.Column="0"
                 Grid.Row="0"
-                Name="SideBorderBlock"
-                Margin="-40 0 0 0"
                 Width="40"
                 Height="1"
                 VerticalAlignment="Center"
+                Margin="{Binding SideBorderMargin, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                Visibility="{Binding IsShowingRoot, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                 BorderThickness="0 0 0 1">
             <Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="2,0"
@@ -78,12 +76,12 @@
         </Border>
         <Button Grid.Column="0"
                 Grid.Row="0"
-                Name="ShowHideButton"
                 Width="20"
                 Height="20"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 Template="{StaticResource BtTemplate}"
+                Visibility="{Binding IsShowingBtn, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                 Content="{Binding ActiveButtonText, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                 Command="{Binding ActiveCommand}"/>
         <Border Grid.Column="1"
@@ -110,22 +108,23 @@
                 <Image Source="{StaticResource Doc16}"
                        Margin="2.5 0"
                        VerticalAlignment="Center"/>
-                <TextBlock Name="DirectoryName"
+                <TextBlock Text="{Binding ContextDirectory, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                            VerticalAlignment="Center"/>
             </StackPanel>
         </Button>
         <StackPanel Grid.Column="2"
                     Grid.Row="1"
                     Background="White"
+                    Visibility="{Binding IsShowing, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                     Name="ItemListPanel"/>
         <Button Grid.Column="0"
                 Grid.Row="1"
-                Name="ShowHideSideButton"
                 Width="20"
                 Height="20"
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Center"
                 Template="{StaticResource BtTemplate}"
+                Visibility="{Binding IsShowing, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                 Content="{Binding ActiveButtonText, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
                 Command="{Binding ActiveCommand}"/>
     </Grid>

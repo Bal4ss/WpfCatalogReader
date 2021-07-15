@@ -67,6 +67,7 @@
         <Compile Include="UI\Controls\Scene Items\ItemControl.xaml.cs">
           <DependentUpon>ItemControl.xaml</DependentUpon>
         </Compile>
+        <Compile Include="UI\Controls\Scene Items\ItemControlVm.cs" />
         <Page Include="MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
